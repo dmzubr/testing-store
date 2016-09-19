@@ -24,6 +24,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/CtrlScenario', {
+        templateUrl: 'views/ctrlscenario.html',
+        controller: 'CtrlScenario'
+      })
       .otherwise({
         redirectTo: '/'
       });

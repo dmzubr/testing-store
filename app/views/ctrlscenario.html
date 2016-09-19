@@ -1,0 +1,30 @@
+<p>This is the CtrlScenario view.</p>
+
+<table class = "table table-stripted" >
+	<thead>
+	 <tr>
+	 	<th>
+	 		"ScenarioId"
+	 	</th>
+	 	<th>
+	 		"Name"
+	 	</th>
+	 	<th>
+	 		"PlanId"
+	 	</th>
+	 	<th>
+	 		"Description"
+	 	</th>
+	 </tr>	
+	</thead>
+	<tbody>
+	  <tr ng-repeat = "scen in scenarioList">
+	  	<td>{{scen.ScenarioId}}</td>
+	  	<td>{{scen.Name}}</td>
+	  	<td>{{scen.PlanId}}</td>
+	  	<td>{{scen.Description}}</td>
+	  </tr>	
+	</tbody>
+
+
+</table>
