@@ -1,0 +1,22 @@
+<H1>User</H1>
+<table class="table table-responsive"; border="1";>
+	<tr>
+		<th>UserId</th>
+		<th>Login</th>
+		<th>Email</th>
+		<th>LastName</th>
+		<th>FirstName</th>
+	</tr>
+	<tr ng-repeat="user in userList">
+		<td>{{user.UserId}}</td>
+		<td>{{user.Login}}</td>
+		<td>{{user.Email}}</td>
+		<td>{{user.LastName}}</td>
+		<td>{{user.FirstName}}</td>
+		<td>
+			<button class="btn btn-danger glyphicon glyphicon-ban-circle" ng-click="deleteArea(area)" ></button>
+			<button class="btn btn-primary glyphicon glyphicon-pencil" ng-click="editArea(area)" ></button>
+		</td> 
+
+	</tr>	
+</table>

@@ -24,7 +24,13 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/user', {
+        templateUrl: 'views/user.html',
+        controller: 'UserCtrl',
+        controllerAs: 'user'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+    });
+  
