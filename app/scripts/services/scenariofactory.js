@@ -10,19 +10,40 @@
 angular.module('testerApp')
   .factory('scenarioFactory', ['$http', function ($http) {
     
-    var _scenarioUrl = 'http://localhost:8085/scenario'
+    var _scenarioUrl = 'http://localhost:8085/scenario'   // Ссылка на порт БД, где находится сущность Scenario
 
-      function getScenarioList(){
+      function getScenarioData(){              // Функция получения списка сущностей из БД
         return $http.get(_scenarioUrl)
           .then(function(res){
             return res.data;
-            console.log(res);
+            
           })
 
       }
 
+
+
+
+      function deleteScenarioEntity(deletedScenario){          // Функция удаления сущности
+        
+        return $http.delete(deletedScenario) 
+         .then(function(res){ 
+          // debugger;
+            return res;
+           }); 
+
+      }
+
+
+     
+    
+
+
+
+
     return {
-      GetScenarioList : getScenarioList
+      GetScenarioData : getScenarioData,
+      DeleteScenarioEntity : deleteScenarioEntity
       };
     
   }]);

@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: CtrlScenario', function () {
+describe('Controller: ScenarioeditCtrl', function () {
 
   // load the controller's module
   beforeEach(module('testerApp'));
 
-  var CtrlScenario,
+  var ScenarioeditCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    CtrlScenario = $controller('CtrlScenario', {
+    ScenarioeditCtrl = $controller('ScenarioeditCtrl', {
       $scope: scope
     });
   }));
