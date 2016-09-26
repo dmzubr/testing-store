@@ -24,7 +24,7 @@ angular.module('testerApp')
       	})	
     };
   
-    function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
+    /*function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
 	//var getData.ScenarioId = $routeParams["id"];
 		var ScenarioId = $routeParams["id"];  // Переменная, чтобы поймать ключ Id
 		_urlLink = _urlLink + '(' + ScenarioId + ')'
@@ -43,7 +43,33 @@ angular.module('testerApp')
         
      	getScenarioData();
         $location.path('/Scenario');
-    }
+    }*/
+
+
+      function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
+      //var getData.ScenarioId = $routeParams["id"];
+        var ScenarioId = $routeParams["id"];  // Переменная, чтобы поймать ключ Id
+        _urlLink = _urlLink + '(' + ScenarioId + ')'
+        debugger;
+        var targetUrl = _urlLink;
+        scenarioData.editLink = undefined;
+        scenarioFactory.SaveDataScenario(targetUrl, scenarioData)
+          .then(function(res){
+            getScenarioData();
+
+         toastr.success('Go on this way', 'All fine');
+        }, function(error){
+          toastr.error('Плохой код', 'Поправь его');
+        });
+         
+
+          var path = $location('/scenario/edit/{0}'.format(scenarioData.scenarioId));
+         // $console.debugger(path);
+          colsole.log(path);
+          getScenarioData();
+          //$location.path('/Scenario');
+      }
+
 
 
 	   getScenarioData();

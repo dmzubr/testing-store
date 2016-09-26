@@ -8,7 +8,7 @@
  * Controller of the testerApp
  */
 angular.module('testerApp')
-  .controller('scenarioCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$rootScope', function ($scope,$http,scenarioFactory,toastr,$rootScope) {
+  .controller('scenarioCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$rootScope', '$location', function ($scope,$http,scenarioFactory,toastr,$rootScope,$location) {
     
   	var _urlLink = 'http://localhost:8085/scenario'
 
@@ -23,23 +23,7 @@ angular.module('testerApp')
       	})	
     };
 
-    
-   /* function postDataToTable(scenarioData){
-       if (!scenarioData.ScenarioId){
-       	$http.post(_urlLink, scenarioData)
-       	 .then(function(res){
-       	 	getScenarioData();
-       	 	toastr.success('Ok', 'good');
-       	 }, function(error){
-       	 	toastr.error('Плохой код', 'Поправь его');
-
-       	 })
-
-       };
-     	
-
-    };*/
-
+   
     function _getUrlScenario(getData){
        return _urlLink + '(' + getData.ScenarioId + ')'
        
@@ -83,9 +67,23 @@ angular.module('testerApp')
 
     }*/
 
+    String.prototype.format = function() 
+      { 
+      var content = this; 
+      for (var i=0; i < arguments.length; i++) 
+      { 
+      var replacement = '{' + i + '}'; 
+      content = content.replace(replacement, arguments[i]); 
+      } 
+      return content; 
+      }; 
+
      function editScenario(scenarioData){
-      
-        $rootScope.postScenario = scenarioData;  // Пока обозначил вот так, через service/factory не получается
+        $rootScope.postScenario = scenarioData;     
+        return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));
+               
+           // return $location.path('/scenario/edit/{0}'.format(scenarioData.ScenarioId));
+         // Пока обозначил вот так, через service/factory не получается
       //  Не надо ругать :)
       }
 

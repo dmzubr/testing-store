@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc function
- * @name testerApp.controller:CreateCtrl
+ * @name testerApp.controller:scenarioCreateCtrl
  * @description
  * # CreateCtrl
  * Controller of the testerApp
  */
 angular.module('testerApp')
-  .controller('scenarioCreateCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$location', function ($scope,$http,scenarioFactory,toastr,$location){
-
-   var _urlLink = 'http://localhost:8085/scenario'
+  .controller('scenarioCreateCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location) {
+    
+  	var _urlLink = 'http://localhost:8085/scenario';
 
    	function getScenarioData(){
       scenarioFactory.GetScenarioData()
@@ -23,7 +23,7 @@ angular.module('testerApp')
       	})	
     };
 
-    function postDataToTable(scenarioData){
+/*    function postDataToTable(scenarioData){
        if (!scenarioData.ScenarioId){
        	$http.post(_urlLink, scenarioData)
        	 .then(function(res){
@@ -36,11 +36,28 @@ angular.module('testerApp')
 
        };
 
-     	
-        $location.path('/Scenario');
+      $location.path('/Scenario');
      	getScenarioData();
-    };
+    };*/
     
+
+    function postDataToTable(scenarioData){
+       if (!scenarioData.ScenarioId){
+        scenarioFactory.PostScenarioData(scenarioData)
+         .then(function(res){
+          //getScenarioData();
+          toastr.success('Ok', 'good');
+         }, function(error){
+          toastr.error('Плохой код', 'Поправь его');
+
+         })
+
+       };
+
+      $location.path('/Scenario');
+      getScenarioData();
+    };
+
     
 
    

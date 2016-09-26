@@ -30,11 +30,15 @@ angular
         controller: 'scenarioCtrl'
       })
       .when('/Scenario/Create', {
-        templateUrl: 'views/scenarioCreate.html',
+        templateUrl: 'views/scenario-create.html',
         controller: 'scenarioCreateCtrl'
       })
+      /*.when('/Scenario/Edit/:id', {
+        templateUrl: 'views/scenario-edit.html',
+        controller: 'scenarioEditCtrl'
+      })*/
       .when('/Scenario/Edit/:id', {
-        templateUrl: 'views/scenarioedit.html',
+        templateUrl: 'views/scenario-edit.html',
         controller: 'scenarioEditCtrl'
       })
       .otherwise({
@@ -42,7 +46,7 @@ angular
       });
  });
   
-  angular.module('testerApp').config(function(toastrConfig) {
+  /*angular.module('testerApp').config(function(toastrConfig) {
     angular.extend(toastrConfig, {
       autoDismiss: false,
       containerId: 'toast-container',
@@ -55,3 +59,4 @@ angular
     });
 
   });
+*/

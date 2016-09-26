@@ -21,10 +21,17 @@ angular.module('testerApp')
 
       }
 
+     
+      function postScenarioData(scenarioData){              // Функция добавления списка в сущность
+        return $http.post(_scenarioUrl, scenarioData)
+          .then(function(res){
+            return res.data;
+            
+          });
 
+      }
 
-
-      function deleteScenarioEntity(deletedScenario){          // Функция удаления сущности
+      function deleteScenarioEntity(deletedScenario){          // Функция удаления сущности.
         
         return $http.delete(deletedScenario) 
          .then(function(res){ 
@@ -35,15 +42,22 @@ angular.module('testerApp')
       }
 
 
-     
-    
+      function saveScenarioEntity(targetUrl, scenarioData){    // Функция обновления данных в сущносте.
 
+        return $http.put(targetUrl, scenarioData)
+         .then(function(res){
+           return res;
+         })
 
-
+      }
 
     return {
       GetScenarioData : getScenarioData,
-      DeleteScenarioEntity : deleteScenarioEntity
+      DeleteScenarioEntity : deleteScenarioEntity,
+      PostScenarioData : postScenarioData,
+      SaveDataScenario : saveScenarioEntity
+
+      
       };
     
   }]);
