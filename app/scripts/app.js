@@ -22,12 +22,10 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
       })
       .when('/user', {
         templateUrl: 'views/user.html',
         controller: 'UserCtrl',
-        controllerAs: 'user'
       })
       .when('/CtrlScenario', {
         templateUrl: 'views/ctrlscenario.html',
@@ -36,5 +34,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-    });
-  
+  });

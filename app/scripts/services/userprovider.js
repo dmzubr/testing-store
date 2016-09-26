@@ -8,16 +8,21 @@
  * Factory in the testerApp.
  */
 angular.module('testerApp')
-  .factory('userProvider', function () {
+  .factory('userProvider',['$http','backendConfig', function ($http, backendConfig) {
     // Service logic
     // ...
 
-    var meaningOfLife = 42;
+   var objectClassName = 'User';
+    var  _userUrl = backendConfig.hostUrl + objectClassName;
 
+    function getDataUser(){
+      return $http.get('http://localhost:8085/User')
+      .then(function(res) {
+        return res.data;
+        });
+    }
     // Public API here
     return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
-  });
+      GetDataUser: getDataUser
+      };
+  }]);

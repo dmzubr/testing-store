@@ -8,10 +8,17 @@
  * Controller of the testerApp
  */
 angular.module('testerApp')
-  .controller('UserCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('UserCtrl', ['$scope', '$http', 'userProvider', function ($scope, $http, userProvider) {
+    
+		function getDataUser() {
+			userProvider.GetAreaUser()// -> promise
+	  		.then(function(res) {
+	  			$scope.userList = res;
+	  		}); 	
+		}	
+		
+      getDataUser();
+
+    $scope.userList = userList;
+
+  }]);
