@@ -8,17 +8,15 @@
  * Factory in the testerApp.
  */
 angular.module('testerApp')
-  .factory('userProvider',['$http','backendConfig', function ($http, backendConfig) {
+  .factory('userProvider',['$http', function ($http) {
     // Service logic
     // ...
-
-   var objectClassName = 'User';
-    var  _userUrl = backendConfig.hostUrl + objectClassName;
 
     function getDataUser(){
       return $http.get('http://localhost:8085/User')
       .then(function(res) {
         return res.data;
+        
         });
     }
     // Public API here

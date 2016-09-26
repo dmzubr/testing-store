@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'toastr'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -27,11 +28,39 @@ angular
         templateUrl: 'views/user.html',
         controller: 'UserCtrl',
       })
-      .when('/CtrlScenario', {
-        templateUrl: 'views/ctrlscenario.html',
-        controller: 'CtrlScenario'
+      .when('/Scenario', {
+        templateUrl: 'views/scenario.html',
+        controller: 'scenarioCtrl'
+      })
+      .when('/Scenario/Create', {
+        templateUrl: 'views/scenario-create.html',
+        controller: 'scenarioCreateCtrl'
+      })
+      /*.when('/Scenario/Edit/:id', {
+        templateUrl: 'views/scenario-edit.html',
+        controller: 'scenarioEditCtrl'
+      })*/
+      .when('/Scenario/Edit/:id', {
+        templateUrl: 'views/scenario-edit.html',
+        controller: 'scenarioEditCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
+ 
+  
+  /*angular.module('testerApp').config(function(toastrConfig) {
+    angular.extend(toastrConfig, {
+      autoDismiss: false,
+      containerId: 'toast-container',
+      maxOpened: 0,    
+      newestOnTop: true,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+      preventOpenDuplicates: false,
+      target: 'body'
+    });
+
+  });
+*/

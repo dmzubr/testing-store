@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -43,6 +44,7 @@
               <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/">Contact</a></li>
               <li><a ng-href="#/CtrlScenario">Scenario</a></li>
+              <li><a ng-href="#/Scenario">Scenario</a></li>
               <li><a ng-href="#/user">User</a></li>
             </ul>
           </div>
@@ -83,6 +85,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -90,8 +93,12 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/user.js"></script>
+        <script src="scripts/services/userProvider.js"></script>
         <script src="scripts/services/scenariofactory.js"></script>
-        <script src="scripts/controllers/ctrlscenario.js"></script>
+        <script src="scripts/controllers/scenarioCtrl.js"></script>
+        <script src="scripts/controllers/scenario-create.js"></script>
+        <script src="scripts/controllers/scenario-edit.js"></script>
+        <script type="scripts/configuration/toastr.js"></script>
         <!-- endbuild -->
 </body>
 </html>

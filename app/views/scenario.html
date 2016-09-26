@@ -1,4 +1,4 @@
-<p>This is the CtrlScenario view.</p>
+<p>This is the scenarioCtrl view.</p>
 
 <!--<head>
 	<link rel="stylesheet" href="app/images/font-awesome-4.6.3/css/font-awesome.min.css">
@@ -46,10 +46,13 @@
 			    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
 			  </a>
 			  <ul class="dropdown-menu">
-			    <li>
-			    	<a class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+			    <li ng-click="editScenario(scen)">
+			    	<!--
+			    	<a class="btn btn-primary" href="#/Scenario/Edit/{{scen.ScenarioId}}"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> Edit</a>
+					-->	
+					<a class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> Edit</a>		    
 			    </li>
-			    <li  ng-click="deleteScenario(scen)">
+			    <li ng-click="deleteScenario(scen)">
 			    	<a class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i> Delete</a>
 			    </li>
 			    
@@ -62,9 +65,13 @@
 
 </table>
 
+<a class="btn btn-primary glyphicon glyphicon-pencil" 
+	 href="#/Scenario/Create">Add</a>
 
-<form ng-model="postScenario">
-	
+
+<!--<form ng-model="postScenario">
+	<nav>Вопрос|<a href="#/answer">Ответить</a></nav>
+
 
 	<div class="form-group"> 
 		<label for="ScenarioId">Id Сценария</label> 
@@ -84,6 +91,6 @@
 	</div> 
 
 	<button class="btn btn-primary glyphicon glyphicon-pencil" ng-click="postDataToTable(postScenario)">Add</button>
-
-
+	<button class="btn btn-primary glyphicon glyphicon-pencil" ng-click="saveDataScenario(postScenario)">Submit</button>
 </form>
+-->
