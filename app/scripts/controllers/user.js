@@ -8,7 +8,7 @@
  * Controller of the testerApp
  */
 angular.module('testerApp')
-  .controller('UserCtrl', ['$scope', '$http', 'userProvider', function ($scope, $http, userProvider) {
+  .controller('UserCtrl', ['$scope', '$http', 'userProvider', 'toastr', function ($scope, $http, userProvider, toastr) {
     
 		function getDataUser() {
 			userProvider.GetDataUser()// -> promise
@@ -19,4 +19,18 @@ angular.module('testerApp')
 		
       getDataUser();
 
-  }]);
+      	function deleteUser(deletedUser) {				
+			userProvider.DeleteUser(deletedUser.UserId)
+			.then(function() {
+				angular.forEach($scope.userList, function(element, index) {
+					if (element === deletedUser) {
+						$scope.userList.splice(index, 1);
+					}
+				});
+			}, function(error) {
+				toastr.error(error.message, 'все плохо');
+			});
+		}
+
+		$scope.deleteUser = deleteUser;
+   }]);

@@ -28,6 +28,10 @@ angular
         templateUrl: 'views/user.html',
         controller: 'UserCtrl',
       })
+      .when('/user/createuser', {
+        templateUrl: 'views/createuser.html',
+        controller: 'CreateuserCtrl', 
+        })  
       .when('/plan', {
         templateUrl: 'views/plan.html',
         controller: 'PlanCtrl',

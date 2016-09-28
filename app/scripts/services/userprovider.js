@@ -12,15 +12,30 @@ angular.module('testerApp')
     // Service logic
     // ...
 
+    var _userUrl = 'http://localhost:8085/User';
+
     function getDataUser(){
-      return $http.get('http://localhost:8085/User')
+      return $http.get(_userUrl)
       .then(function(res) {
         return res.data;
         
         });
     }
+
+    function createUser(createdUser){
+      return $http.post(_userUrl,createdUser);
+    }
+
+    function deleteUser(deletedUserId){
+      var targetUrl = _userUrl +'('+ deletedUserId + ')';
+      return $http.delete(targetUrl);
+    }
+
+
     // Public API here
     return {
-      GetDataUser: getDataUser
+      GetDataUser: getDataUser,
+      CreateUser: createUser,
+      DeleteUser: deleteUser
       };
   }]);

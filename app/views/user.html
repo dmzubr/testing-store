@@ -1,4 +1,5 @@
-<p>User</p>
+<p>User</p> 
+
 <table class="table table-responsive"; border="1";>
 	<tr>
 		<th>UserId</th>
@@ -15,9 +16,12 @@
 		<td>{{user.LastName}}</td>
 		<td>{{user.FirstName}}</td>
 		<td>
-			<button class="btn btn-danger glyphicon glyphicon-ban-circle" ng-click="deleteArea(area)" ></button>
-			<button class="btn btn-primary glyphicon glyphicon-pencil" ng-click="editArea(area)" ></button>
-		</td> 
-
+			<button class="btn btn-danger glyphicon glyphicon-ban-circle" ng-click="deleteUser(user)" ></button>
+			<a class="btn btn-primary glyphicon glyphicon-pencil" 
+	 href="#/user/createuser"></a>
+		</td>
 	</tr> 	
 </table>
+
+<a class="btn btn-primary glyphicon glyphicon-pencil" 
+	 href="#/user/createuser">Create a new record</a>
