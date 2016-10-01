@@ -35,7 +35,7 @@
             </button>
 
             <a class="navbar-brand" href="#/">tester</a>
-          </div>
+            </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
@@ -43,7 +43,10 @@
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/">Contact</a></li>
+              <li><a ng-href="#/CtrlScenario">Scenario</a></li>
               <li><a ng-href="#/Scenario">Scenario</a></li>
+              <li><a ng-href="#/user">User</a></li>
+              <li><a ng-href="#/plan">Plan</a></li>
             </ul>
           </div>
         </div>
@@ -90,13 +93,21 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/user.js"></script>
+        <script src="scripts/services/userProvider.js"></script>
         <script src="scripts/services/scenariofactory.js"></script>
         <script src="scripts/controllers/scenarioCtrl.js"></script>
         <script src="scripts/controllers/scenario-create.js"></script>
         <script src="scripts/controllers/scenario-edit.js"></script>
         <script type="scripts/configuration/toastr.js"></script>
+<<<<<<< HEAD
         <script src="scripts/services/scenario-shareddataservice.js"></script>
         <script src="scripts/services/helper.js"></script>
+=======
+        <script src="scripts/controllers/plan.js"></script>
+        <script src="scripts/services/planprovider.js"></script>
+        <script src="scripts/controllers/createuser.js"></script>
+>>>>>>> 41c651660eddbf81bfaa38eabb3e122d820b4dab
         <!-- endbuild -->
 </body>
 </html>
