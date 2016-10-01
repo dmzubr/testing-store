@@ -8,9 +8,9 @@
  * Controller of the testerApp
  */
 angular.module('testerApp')
-  .controller('scenarioCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$rootScope', '$location', function ($scope,$http,scenarioFactory,toastr,$rootScope,$location) {
+  .controller('scenarioCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$rootScope', '$location', 'scenarioSharedDataService', 'helper', function ($scope,$http,scenarioFactory,toastr,$rootScope,$location,scenarioSharedDataService,helper) {
     
-  	var _urlLink = 'http://localhost:8085/scenario'
+ // 	var _urlLink = 'http://localhost:8085/scenario'
 
     function getScenarioData(){
       scenarioFactory.GetScenarioData()
@@ -25,7 +25,7 @@ angular.module('testerApp')
 
    
     function _getUrlScenario(getData){
-       return _urlLink + '(' + getData.ScenarioId + ')'
+       return helper.GetUrlLink() + '(' + getData.ScenarioId + ')'
        
     };
 
@@ -79,13 +79,18 @@ angular.module('testerApp')
       }; 
 
      function editScenario(scenarioData){
-        $rootScope.postScenario = scenarioData;     
+      $scope.scenData = scenarioData;
+        scenarioSharedDataService.addList($scope.scenData);
+      //  console.log(a);
+       // $rootScope.postScenario = scenarioData;     
         return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));
                
            // return $location.path('/scenario/edit/{0}'.format(scenarioData.ScenarioId));
          // Пока обозначил вот так, через service/factory не получается
       //  Не надо ругать :)
       }
+
+
 
     getScenarioData();
   //  $scope.postDataToTable = postDataToTable;

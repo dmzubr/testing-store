@@ -1,0 +1,157 @@
+warning: LF will be replaced by CRLF in app/scripts/controllers/scenario-create.js.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in app/scripts/controllers/scenario-edit.js.
+The file will have its original line endings in your working directory.
+[1mdiff --git a/app/index.html b/app/index.html[m
+[1mindex ef2050b..856afac 100644[m
+[1m--- a/app/index.html[m
+[1m+++ b/app/index.html[m
+[36m@@ -95,6 +95,8 @@[m
+         <script src="scripts/controllers/scenario-create.js"></script>[m
+         <script src="scripts/controllers/scenario-edit.js"></script>[m
+         <script type="scripts/configuration/toastr.js"></script>[m
+[32m+[m[32m        <script src="scripts/services/scenario-shareddataservice.js"></script>[m
+[32m+[m[32m        <script src="scripts/services/helper.js"></script>[m
+         <!-- endbuild -->[m
+ </body>[m
+ </html>[m
+[1mdiff --git a/app/scripts/controllers/scenario-create.js b/app/scripts/controllers/scenario-create.js[m
+[1mindex b774b24..19d5fde 100644[m
+[1m--- a/app/scripts/controllers/scenario-create.js[m
+[1m+++ b/app/scripts/controllers/scenario-create.js[m
+[36m@@ -10,7 +10,7 @@[m
+ angular.module('testerApp')[m
+   .controller('scenarioCreateCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location) {[m
+     [m
+[31m-  	var _urlLink = 'http://localhost:8085/scenario';[m
+[32m+[m[41m  [m	[32m//var _urlLink = 'http://localhost:8085/scenario';[m
+ [m
+    	function getScenarioData(){[m
+       scenarioFactory.GetScenarioData()[m
+[1mdiff --git a/app/scripts/controllers/scenario-edit.js b/app/scripts/controllers/scenario-edit.js[m
+[1mindex d01ad1c..fc1859f 100644[m
+[1m--- a/app/scripts/controllers/scenario-edit.js[m
+[1m+++ b/app/scripts/controllers/scenario-edit.js[m
+[36m@@ -8,9 +8,9 @@[m
+  * Controller of the testerApp[m
+  */[m
+ angular.module('testerApp')[m
+[31m-  .controller('scenarioEditCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location) {[m
+[32m+[m[32m  .controller('scenarioEditCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', 'scenarioSharedDataService', 'helper', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location,scenarioSharedDataService,helper) {[m
+     [m
+[31m-  	var _urlLink = 'http://localhost:8085/scenario';[m
+[32m+[m[41m  [m	[32m//var _urlLink = 'http://localhost:8085/scenario';[m
+ [m
+ [m
+     function getScenarioData(){[m
+[36m@@ -23,6 +23,13 @@[m [mangular.module('testerApp')[m
+ [m
+       	})	[m
+     };[m
+[32m+[m
+[32m+[m[32m    function ShowDataScenario(){[m
+[32m+[m[32m      // $scope.postScenario = scenarioSharedDataService.getList();[m
+[32m+[m[32m      $scope.postScenario.ScenarioId === '1';[m
+[32m+[m[32m      $scope.postScenario.Name === 'kk';[m
+[32m+[m[32m    };[m
+[32m+[m[41m   [m
+   [m
+     /*function saveDataScenario(scenarioData){          // Функция обновляет данные в БД[m
+ 	//var getData.ScenarioId = $routeParams["id"];[m
+[36m@@ -49,7 +56,7 @@[m [mangular.module('testerApp')[m
+       function saveDataScenario(scenarioData){          // Функция обновляет данные в БД[m
+       //var getData.ScenarioId = $routeParams["id"];[m
+         var ScenarioId = $routeParams["id"];  // Переменная, чтобы поймать ключ Id[m
+[31m-        _urlLink = _urlLink + '(' + ScenarioId + ')'[m
+[32m+[m[32m        var _urlLink = helper.GetUrlLink() + '(' + ScenarioId + ')'[m
+         debugger;[m
+         var targetUrl = _urlLink;[m
+         scenarioData.editLink = undefined;[m
+[36m@@ -71,7 +78,7 @@[m [mangular.module('testerApp')[m
+       }[m
+ [m
+ [m
+[31m-[m
+[32m+[m[32m     ShowDataScenario();[m
+ 	   getScenarioData();[m
+ 	   $scope.saveDataScenario = saveDataScenario;[m
+ [m
+[1mdiff --git a/app/scripts/controllers/scenarioCtrl.js b/app/scripts/controllers/scenarioCtrl.js[m
+[1mindex 6af1389..55cedda 100644[m
+[1m--- a/app/scripts/controllers/scenarioCtrl.js[m
+[1m+++ b/app/scripts/controllers/scenarioCtrl.js[m
+[36m@@ -8,9 +8,9 @@[m
+  * Controller of the testerApp[m
+  */[m
+ angular.module('testewarning: LF will be replaced by CRLF in app/scripts/controllers/scenarioCtrl.js.
+The file will have its original line endings in your working directory.
+rApp')[m
+[31m-  .controller('scenarioCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$rootScope', '$location', function ($scope,$http,scenarioFactory,toastr,$rootScope,$location) {[m
+[32m+[m[32m  .controller('scenarioCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$rootScope', '$location', 'scenarioSharedDataService', 'helper', function ($scope,$http,scenarioFactory,toastr,$rootScope,$location,scenarioSharedDataService,helper) {[m
+     [m
+[31m-  	var _urlLink = 'http://localhost:8085/scenario'[m
+[32m+[m[32m // 	var _urlLink = 'http://localhost:8085/scenario'[m
+ [m
+     function getScenarioData(){[m
+       scenarioFactory.GetScenarioData()[m
+[36m@@ -25,7 +25,7 @@[m [mangular.module('testerApp')[m
+ [m
+    [m
+     function _getUrlScenario(getData){[m
+[31m-       return _urlLink + '(' + getData.ScenarioId + ')'[m
+[32m+[m[32m       return helper.GetUrlLink() + '(' + getData.ScenarioId + ')'[m
+        [m
+     };[m
+ [m
+[36m@@ -79,7 +79,10 @@[m [mangular.module('testerApp')[m
+       }; [m
+ [m
+      function editScenario(scenarioData){[m
+[31m-        $rootScope.postScenario = scenarioData;     [m
+[32m+[m[32m      $scope.scenData = scenarioData;[m
+[32m+[m[32m        scenarioSharedDataService.addList($scope.scenData);[m
+[32m+[m[32m      //  console.log(a);[m
+[32m+[m[32m       // $rootScope.postScenario = scenarioData;[m[41m     [m
+         return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));[m
+                [m
+            // return $location.path('/scenario/edit/{0}'.format(scenarioData.ScenarioId));[m
+[36m@@ -87,6 +90,8 @@[m [mangular.module('testerApp')[m
+       //  Не надо ругать :)[m
+       }[m
+ [m
+[32m+[m
+[32m+[m
+     getScenarioData();[m
+   //  $scope.postDataToTable = postDataToTable;[m
+     $scope.deleteScenario = deleteScenario;[m
+[1mdiff --git a/app/scripts/services/scenariofactory.js b/app/scripts/services/scenariofactory.js[m
+[1mindex 0a127ae..ce5b656 100644[m
+[1m--- a/app/scripts/services/scenariofactory.js[m
+[1m+++ b/app/scripts/services/scenariofactory.js[m
+[36m@@ -8,12 +8,12 @@[m
+  * Factory in the testerApp.[m
+  */[m
+ angular.module('testerApp')[m
+[31m-  .factory('scenarioFactory', ['$http', function ($http) {[m
+[32m+[m[32m  .factory('scenarioFactory', ['$http', 'helper', function ($http, helper) {[m
+     [m
+[31m-    var _scenarioUrl = 'http://localhost:8085/scenario'   // Ссылка на порт БД, где находится сущность Scenario[m
+[32m+[m[32m    //var _scenarioUrl = 'http://localhost:8085/scenario'   // Ссылка на порт БД, где находится сущность Scenario[m
+ [m
+       function getScenarioData(){              // Функция получения списка сущностей из БД[m
+[31m-        return $http.get(_scenarioUrl)[m
+[32m+[m[32m        return $http.get(helper.GetUrlLink())[m
+           .then(function(res){[m
+             return res.data;[m
+             [m
+[36m@@ -23,7 +23,7 @@[m [mangular.module('testerApp')[m
+ [m
+      [m
+       function postScenarioData(scenarioData){              // Функция добавления списка в сущность[m
+[31m-        return $http.post(_scenarioUrl, scenarioData)[m
+[32m+[m[32m        return $http.post(helper.GetUrlLink(), scenarioData)[m
+           .then(function(res){[m
+             return res.data;[m
+             [m
+warning: LF will be replaced by CRLF in app/scripts/services/scenariofactory.js.
+The file will have its original line endings in your working directory.

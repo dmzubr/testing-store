@@ -8,12 +8,12 @@
  * Factory in the testerApp.
  */
 angular.module('testerApp')
-  .factory('scenarioFactory', ['$http', function ($http) {
+  .factory('scenarioFactory', ['$http', 'helper', function ($http, helper) {
     
-    var _scenarioUrl = 'http://localhost:8085/scenario'   // Ссылка на порт БД, где находится сущность Scenario
+    //var _scenarioUrl = 'http://localhost:8085/scenario'   // Ссылка на порт БД, где находится сущность Scenario
 
       function getScenarioData(){              // Функция получения списка сущностей из БД
-        return $http.get(_scenarioUrl)
+        return $http.get(helper.GetUrlLink())
           .then(function(res){
             return res.data;
             
@@ -23,7 +23,7 @@ angular.module('testerApp')
 
      
       function postScenarioData(scenarioData){              // Функция добавления списка в сущность
-        return $http.post(_scenarioUrl, scenarioData)
+        return $http.post(helper.GetUrlLink(), scenarioData)
           .then(function(res){
             return res.data;
             

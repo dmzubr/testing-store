@@ -8,9 +8,9 @@
  * Controller of the testerApp
  */
 angular.module('testerApp')
-  .controller('scenarioEditCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location) {
+  .controller('scenarioEditCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', 'scenarioSharedDataService', 'helper', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location,scenarioSharedDataService,helper) {
     
-  	var _urlLink = 'http://localhost:8085/scenario';
+  	//var _urlLink = 'http://localhost:8085/scenario';
 
 
     function getScenarioData(){
@@ -23,6 +23,13 @@ angular.module('testerApp')
 
       	})	
     };
+
+    function ShowDataScenario(){
+      // $scope.postScenario = scenarioSharedDataService.getList();
+      $scope.postScenario.ScenarioId === '1';
+      $scope.postScenario.Name === 'kk';
+    };
+   
   
     /*function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
 	//var getData.ScenarioId = $routeParams["id"];
@@ -49,7 +56,7 @@ angular.module('testerApp')
       function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
       //var getData.ScenarioId = $routeParams["id"];
         var ScenarioId = $routeParams["id"];  // Переменная, чтобы поймать ключ Id
-        _urlLink = _urlLink + '(' + ScenarioId + ')'
+        var _urlLink = helper.GetUrlLink() + '(' + ScenarioId + ')'
         debugger;
         var targetUrl = _urlLink;
         scenarioData.editLink = undefined;
@@ -71,7 +78,7 @@ angular.module('testerApp')
       }
 
 
-
+     ShowDataScenario();
 	   getScenarioData();
 	   $scope.saveDataScenario = saveDataScenario;
 

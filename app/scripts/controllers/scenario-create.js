@@ -10,7 +10,7 @@
 angular.module('testerApp')
   .controller('scenarioCreateCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location) {
     
-  	var _urlLink = 'http://localhost:8085/scenario';
+  	//var _urlLink = 'http://localhost:8085/scenario';
 
    	function getScenarioData(){
       scenarioFactory.GetScenarioData()
