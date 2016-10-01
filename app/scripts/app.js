@@ -23,7 +23,18 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+      })
+      .when('/user', {
+        templateUrl: 'views/user.html',
+        controller: 'UserCtrl',
+      })
+      .when('/user/createuser', {
+        templateUrl: 'views/createuser.html',
+        controller: 'CreateuserCtrl', 
+        })  
+      .when('/plan', {
+        templateUrl: 'views/plan.html',
+        controller: 'PlanCtrl',
       })
       .when('/Scenario', {
         templateUrl: 'views/scenario.html',
@@ -44,7 +55,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
- });
+  });
+ 
   
   /*angular.module('testerApp').config(function(toastrConfig) {
     angular.extend(toastrConfig, {

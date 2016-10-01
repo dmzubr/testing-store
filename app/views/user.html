@@ -1,0 +1,27 @@
+<p>User</p> 
+
+<table class="table table-responsive"; border="1";>
+	<tr>
+		<th>UserId</th>
+		<th>Login</th>
+		<th>Email</th>
+		<th>LastName</th>
+		<th>FirstName</th>
+		<th>Edit</th>
+	</tr>
+	<tr ng-repeat="user in userList">
+		<td>{{user.UserId}}</td>
+		<td>{{user.Login}}</td>
+		<td>{{user.Email}}</td>
+		<td>{{user.LastName}}</td>
+		<td>{{user.FirstName}}</td>
+		<td>
+			<button class="btn btn-danger glyphicon glyphicon-ban-circle" ng-click="deleteUser(user)" ></button>
+			<a class="btn btn-primary glyphicon glyphicon-pencil" 
+	 href="#/user/createuser"></a>
+		</td>
+	</tr> 	
+</table>
+
+<a class="btn btn-primary glyphicon glyphicon-pencil" 
+	 href="#/user/createuser">Create a new record</a>

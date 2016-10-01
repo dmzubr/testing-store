@@ -1,0 +1,24 @@
+<p>Plan</p>
+<table class="table table-responsive"; border="1";>
+	<tr>
+		<th>PlanId</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>ProjectId</th>
+		<th>StartDate</th>
+		<th>FinalDate</th>
+		<th>Edit</th>
+	</tr>
+	<tr ng-repeat="plan in planList">
+		<td>{{plan.PlanId}}</td>
+		<td>{{plan.Name}}</td>
+		<td>{{plan.Description}}</td>
+		<td>{{plan.ProjectId}}</td>
+		<td>{{plan.StartDate}}</td>
+		<td>{{plan.FinalDate}}</td>
+		<td>
+			<button class="btn btn-danger glyphicon glyphicon-ban-circle" ng-click="deleteArea(area)" ></button>
+			<button class="btn btn-primary glyphicon glyphicon-pencil" ng-click="editArea(area)" ></button>
+		</td> 
+	</tr> 	
+</table>

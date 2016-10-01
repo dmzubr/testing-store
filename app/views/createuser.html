@@ -1,0 +1,24 @@
+<form ng-model="createdArea">
+	<h2>Сущность № {{editedArea.areaId}}</h2>
+	<div class="form-group">
+		<label for="Login">Логин</label>
+    	<input type="text" class="form-control" ng-model="createdUser.Login" placeholder="Введите ваш логин">
+	</div>
+
+	<div class="form-group">
+		<label for="Email">Адрес электронной почты</label>
+    	<input type="text" class="form-control" ng-model="createdUser.Email" placeholder="Адрес электронной почты">
+	</div>
+
+	<div class="form-group">
+		<label for="LastName">Фамилиия</label>
+    	<input type="text" class="form-control" ng-model="createdUser.LastName" placeholder="Фамилия">
+	</div>
+
+	<div class="form-group">
+		<label for="FirstName">Имя</label>
+    	<input type="text" class="form-control" ng-model="createdUser.FirstName" placeholder="Имя">
+	</div>
+
+	<a class="btn btn-success" ng-click="createUser(createdUser)" href="#/user">Add</a>
+</form>
