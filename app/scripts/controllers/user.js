@@ -32,5 +32,12 @@ angular.module('testerApp')
 			});
 		}
 
+
+		function editUser(editedUser){
+			$scope.editedUser = editedUser;
+			}
+
+
+
 		$scope.deleteUser = deleteUser;
    }]);

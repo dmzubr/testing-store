@@ -1,0 +1,25 @@
+<form ng-model="EditUser">
+	<h2>Изменение параметров</h2>
+	<div class="form-group">
+		<label for="Login">Логин</label>
+    	<input type="text" class="form-control" ng-model="editedUser.Login" placeholder="Логин">
+	</div>
+
+	<div class="form-group">
+		<label for="Email">Адрес электронной почты</label>
+    	<input type="text" class="form-control" ng-model="editedUser.Email" placeholder="Адрес электронной почты">
+	</div>
+
+	<div class="form-group">
+		<label for="LastName">Фамилиия</label>
+    	<input type="text" class="form-control" ng-model="editedUser.LastName" placeholder="Фамилия">
+	</div>
+
+	<div class="form-group">
+		<label for="FirstName">Имя</label>
+    	<input type="text" class="form-control" ng-model="editedUser.FirstName" placeholder="Имя">
+	</div>
+
+	<a class="btn btn-success" ng-click="editUser(editedUser)" href="#/user">Add</a>
+</form>
+
