@@ -14,24 +14,48 @@ angular.module('testerApp')
 
 
     function getScenarioData(){
+     
       scenarioFactory.GetScenarioData()
       	.then(function(res){
-      		console.log(res);
-      		$scope.scenarioList = res;
+          $scope.postScenario = res;
+          console.log($scope.postScenario);
       	}, function(error){
            toastr.error('Плохой код', 'Поправь его');
 
       	})	
     };
 
-    function ShowDataScenario(){
-      // $scope.postScenario = scenarioSharedDataService.getList();
-      $scope.postScenario.ScenarioId === '1';
-      $scope.postScenario.Name === 'kk';
-    };
-   
-  
-    /*function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
+    String.prototype.format = function() 
+      { 
+      var content = this; 
+      for (var i=0; i < arguments.length; i++) 
+      { 
+      var replacement = '{' + i + '}'; 
+      content = content.replace(replacement, arguments[i]); 
+      } 
+      return content; 
+      }; 
+
+     function editScenario(scenarioData){
+      debugger;
+    //  $scope.scenarioData = scenarioData.ScenarioId;
+      var postScenario = {};
+      postScenario = scenarioData; 
+      console.log(postScenario);
+        return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));
+            
+               
+               
+           // return $location.path('/scenario/edit/{0}'.format(scenarioData.ScenarioId));
+         // Пока обозначил вот так, через service/factory не получается
+      }
+      
+      
+
+    
+
+      
+    /*function saveDataScenario(scenarioData){          // Функция обновляет данные в БД без helper
 	//var getData.ScenarioId = $routeParams["id"];
 		var ScenarioId = $routeParams["id"];  // Переменная, чтобы поймать ключ Id
 		_urlLink = _urlLink + '(' + ScenarioId + ')'
@@ -50,7 +74,7 @@ angular.module('testerApp')
         
      	getScenarioData();
         $location.path('/Scenario');
-    }*/
+    } 
 
 
       function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
@@ -75,11 +99,16 @@ angular.module('testerApp')
           colsole.log(path);
           getScenarioData();
           //$location.path('/Scenario');
-      }
+      }*/
 
 
-     ShowDataScenario();
+
+
+    
 	   getScenarioData();
-	   $scope.saveDataScenario = saveDataScenario;
+	 //  $scope.saveDataScenario = saveDataScenario; 
+     $scope.editScenario = editScenario;
+
+   
 
   }]);

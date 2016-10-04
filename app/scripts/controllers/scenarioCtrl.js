@@ -44,30 +44,9 @@ angular.module('testerApp')
                    });
     };
 
-    /*function saveDataScenario(scenarioData){
+    
 
-       var targetUrl = _getUrlScenario(scenarioData);
-       scenarioData.editLink = undefined; 
-       $http.put(targetUrl, scenarioData)
-        .then(function(res){
-          getScenarioData()
-          debugger;
-         toastr.success('Go on this way', 'All fine');
-        }, function(error){
-          toastr.error('Плохой код', 'Поправь его');
-        });
-
-
-    }*/
-
-
-   /* function editScenario(scenarioData){
-      $scope.postScenario = scenarioData;
-      console.log(scenarioData);
-
-    }*/
-
-    String.prototype.format = function() 
+   /* String.prototype.format = function() 
       { 
       var content = this; 
       for (var i=0; i < arguments.length; i++) 
@@ -82,13 +61,13 @@ angular.module('testerApp')
       $scope.scenData = scenarioData;
         scenarioSharedDataService.addList($scope.scenData);
       //  console.log(a);
-       // $rootScope.postScenario = scenarioData;     
+        $rootScope.postScenario = scenarioData;     
         return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));
                
            // return $location.path('/scenario/edit/{0}'.format(scenarioData.ScenarioId));
          // Пока обозначил вот так, через service/factory не получается
       //  Не надо ругать :)
-      }
+      }*/
 
 
 
@@ -96,7 +75,7 @@ angular.module('testerApp')
   //  $scope.postDataToTable = postDataToTable;
     $scope.deleteScenario = deleteScenario;
   //  $scope.saveDataScenario = saveDataScenario;
-    $scope.editScenario = editScenario;
+   // $scope.editScenario = editScenario;
 
 
   }]);

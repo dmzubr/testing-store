@@ -21,6 +21,16 @@ angular.module('testerApp')
 
       }
 
+  /*     function getScenarioDataC(callBack){              // Функция получения списка сущностей из БД
+        return $http.get(helper.GetUrlLink())
+          .then(function(res){
+            return res.data(callBack);
+            
+          })
+
+      }*/
+
+
      
       function postScenarioData(scenarioData){              // Функция добавления списка в сущность
         return $http.post(helper.GetUrlLink(), scenarioData)
@@ -56,6 +66,7 @@ angular.module('testerApp')
       DeleteScenarioEntity : deleteScenarioEntity,
       PostScenarioData : postScenarioData,
       SaveDataScenario : saveScenarioEntity
+    //  GetScenarioDataC : getScenarioDataC
 
       
       };

@@ -10,7 +10,7 @@
 angular.module('testerApp')
   .service('scenarioSharedDataService', function () {
     
-    var myList = [];
+    var myList = {};
 
     var addList = function(newObject){
     	myList.push(newObject);
