@@ -1,25 +1,27 @@
-<form ng-model="EditUser">
+
+<form ng-model="user">
 	<h2>Изменение параметров</h2>
 	<div class="form-group">
 		<label for="Login">Логин</label>
-    	<input type="text" class="form-control" ng-model="editedUser.Login" placeholder="Логин">
+    	<input type="text" class="form-control" ng-model= "user.Login" placeholder="Логин">
 	</div>
 
 	<div class="form-group">
 		<label for="Email">Адрес электронной почты</label>
-    	<input type="text" class="form-control" ng-model="editedUser.Email" placeholder="Адрес электронной почты">
+    	<input type="text" class="form-control" ng-model="user.Email" placeholder="Адрес электронной почты">
 	</div>
 
 	<div class="form-group">
 		<label for="LastName">Фамилиия</label>
-    	<input type="text" class="form-control" ng-model="editedUser.LastName" placeholder="Фамилия">
+    	<input type="text" class="form-control" ng-model="user.LastName" placeholder="Фамилия">
 	</div>
 
 	<div class="form-group">
 		<label for="FirstName">Имя</label>
-    	<input type="text" class="form-control" ng-model="editedUser.FirstName" placeholder="Имя">
+    	<input type="text" class="form-control" ng-model="user.FirstName" placeholder="Имя">
 	</div>
 
-	<a class="btn btn-success" ng-click="editUser(editedUser)" href="#/user">Add</a>
+	<button class="btn btn-primary glyphicon glyphicon-pencil" ng-click = "editUser(user)" ></button>
 </form>
+
 

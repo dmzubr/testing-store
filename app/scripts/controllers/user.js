@@ -34,10 +34,11 @@ angular.module('testerApp')
 
 
 		function editUser(editedUser){
-			$scope.editedUser = editedUser;
+			debugger;
+			$scope.editUser = location.href='#/user/edituser/' + editedUser.UserId;
 			}
 
-
+		$scope.editUser = editUser;
 
 		$scope.deleteUser = deleteUser;
    }]);
