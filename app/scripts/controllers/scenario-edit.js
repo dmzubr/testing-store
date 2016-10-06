@@ -73,8 +73,8 @@ angular.module('testerApp')
 
 
       function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
-      //var getData.ScenarioId = $routeParams["id"];
-        var ScenarioId = $routeParams["id"];  // Переменная, чтобы поймать ключ Id
+      
+        var ScenarioId = $routeParams.id;  // Переменная, чтобы поймать ключ Id
         var _urlLink = helper.GetUrlLink() + '(' + ScenarioId + ')'
         debugger;
         var targetUrl = _urlLink;
