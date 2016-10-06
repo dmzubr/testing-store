@@ -48,10 +48,7 @@ angular
         templateUrl: 'views/scenario-create.html',
         controller: 'scenarioCreateCtrl'
       })
-      /*.when('/Scenario/Edit/:id', {
-        templateUrl: 'views/scenario-edit.html',
-        controller: 'scenarioEditCtrl'
-      })*/
+      
       .when('/Scenario/Edit/:id', {
         templateUrl: 'views/scenario-edit.html',
         controller: 'scenarioEditCtrl',
