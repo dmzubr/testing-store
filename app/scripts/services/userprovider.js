@@ -31,11 +31,16 @@ angular.module('testerApp')
       return $http.delete(targetUrl);
     }
 
+    function editUser(editedUser, editedUserId){
+      var targetUrl = _userUrl +'('+ editedUserId + ')';
+      return $http.put(targetUrl,editedUser);
+    }
 
     // Public API here
     return {
       GetDataUser: getDataUser,
       CreateUser: createUser,
-      DeleteUser: deleteUser
+      DeleteUser: deleteUser,
+      EditUser: editUser
       };
   }]);

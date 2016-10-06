@@ -1,3 +1,7 @@
+<head>
+	<script src="https://use.fontawesome.com/2157c973c1.js"></script>
+</head>
+
 <p>User</p> 
 
 <table class="table table-responsive"; border="1";>
@@ -16,12 +20,12 @@
 		<td>{{user.LastName}}</td>
 		<td>{{user.FirstName}}</td>
 		<td>
-			<button class="btn btn-danger glyphicon glyphicon-ban-circle" ng-click="deleteUser(user)" ></button>
-			<a class="btn btn-primary glyphicon glyphicon-pencil" 
-	 href="#/user/createuser"></a>
+			<button class="fa fa-times-circle" ng-click="deleteUser(user)" ></button>
+			<button class="fa fa-pencil-square-o" ng-click = "editUser(user)" ></button>
 		</td>
 	</tr> 	
 </table>
 
 <a class="btn btn-primary glyphicon glyphicon-pencil" 
 	 href="#/user/createuser">Create a new record</a>
+

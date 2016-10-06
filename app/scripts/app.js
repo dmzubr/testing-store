@@ -32,6 +32,10 @@ angular
         templateUrl: 'views/createuser.html',
         controller: 'CreateuserCtrl', 
         })  
+      .when('/user/edituser/:UserId', {
+        templateUrl: 'views/edituser.html',
+        controller: 'EdituserCtrl', 
+        }) 
       .when('/plan', {
         templateUrl: 'views/plan.html',
         controller: 'PlanCtrl',
@@ -50,12 +54,22 @@ angular
       })*/
       .when('/Scenario/Edit/:id', {
         templateUrl: 'views/scenario-edit.html',
-        controller: 'scenarioEditCtrl'
+        controller: 'scenarioEditCtrl',
+        
       })
       .otherwise({
         redirectTo: '/'
       });
-  });
+
+        });
+
+
+
+
+
+
+
+
  
   
   /*angular.module('testerApp').config(function(toastrConfig) {
