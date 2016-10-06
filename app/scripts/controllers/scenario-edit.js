@@ -12,17 +12,27 @@ angular.module('testerApp')
     
   	//var _urlLink = 'http://localhost:8085/scenario';
 
-
+/**/
     function getScenarioData(){
-     
+        
       scenarioFactory.GetScenarioData()
       	.then(function(res){
-          $scope.postScenario = res;
-          console.log($scope.postScenario);
-      	}, function(error){
+          
+           $scope.scenarioList = res;
+          }
+          }, function(error){
            toastr.error('Плохой код', 'Поправь его');
 
       	})	
+    };
+
+    function getEditId(){
+        var param = $routeParams.id;
+        var i;
+
+        (res[i].ScenarioId === param){
+            return res;
+
     };
 
     String.prototype.format = function() 
@@ -39,9 +49,11 @@ angular.module('testerApp')
      function editScenario(scenarioData){
       debugger;
     //  $scope.scenarioData = scenarioData.ScenarioId;
-      var postScenario = {};
-      postScenario = scenarioData; 
-      console.log(postScenario);
+      
+    //  $scope.postScenario = scenarioData; 
+      
+
+      
         return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));
             
                
@@ -50,6 +62,9 @@ angular.module('testerApp')
          // Пока обозначил вот так, через service/factory не получается
       }
       
+        $scope.model = {
+        message: $routeParams.id
+      } 
       
 
     
