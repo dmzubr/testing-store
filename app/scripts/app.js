@@ -32,6 +32,10 @@ angular
         templateUrl: 'views/createuser.html',
         controller: 'CreateuserCtrl', 
         })  
+      .when('/user/edituser/:UserId', {
+        templateUrl: 'views/edituser.html',
+        controller: 'EdituserCtrl', 
+        }) 
       .when('/plan', {
         templateUrl: 'views/plan.html',
         controller: 'PlanCtrl',
@@ -56,7 +60,16 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+
+        });
+
+
+
+
+
+
+
+
  
   
   /*angular.module('testerApp').config(function(toastrConfig) {
