@@ -50,7 +50,8 @@ angular
       })*/
       .when('/Scenario/Edit/:id', {
         templateUrl: 'views/scenario-edit.html',
-        controller: 'scenarioEditCtrl'
+        controller: 'scenarioEditCtrl',
+        
       })
       .otherwise({
         redirectTo: '/'

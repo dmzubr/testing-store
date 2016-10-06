@@ -10,20 +10,46 @@
 angular.module('testerApp')
   .controller('scenarioEditCtrl', ['$scope', '$http', 'scenarioFactory', 'toastr', '$routeParams', '$location', 'scenarioSharedDataService', 'helper', function ($scope,$http,scenarioFactory,toastr,$routeParams,$location,scenarioSharedDataService,helper) {
     
-  	//var _urlLink = 'http://localhost:8085/scenario';
-
+  	$scope.model = {
+      idRoute: $routeParams.id
+    }
 
     function getScenarioData(){
      
       scenarioFactory.GetScenarioData()
       	.then(function(res){
-          $scope.postScenario = res;
-          console.log($scope.postScenario);
+         debugger;
+
+         var scenarioLists = [];
+         scenarioLists = res;
+            for(var i in scenarioLists){
+              if(parseInt($scope.model.idRoute) === scenarioLists[i].ScenarioId){
+              
+                $scope.postScenario = scenarioLists[i];
+                toastr.success('Меню загружено','Можно редактировать');
+              }
+            }
+                 
+          
       	}, function(error){
            toastr.error('Плохой код', 'Поправь его');
 
       	})	
-    };
+    }
+
+    function refreshScenarioData(){
+     
+      scenarioFactory.GetScenarioData()
+        .then(function(res){
+             
+         $scope.postScenario = res;
+            toastr.success('Меню загружено','Обновлено');
+              
+         }, function(error){
+            toastr.error('Плохой код', 'Поправь его');
+
+        })  
+    }
 
     String.prototype.format = function() 
       { 
@@ -37,44 +63,12 @@ angular.module('testerApp')
       }; 
 
      function editScenario(scenarioData){
-      debugger;
-    //  $scope.scenarioData = scenarioData.ScenarioId;
-      var postScenario = {};
-      postScenario = scenarioData; 
-      console.log(postScenario);
-        return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));
-            
-               
-               
-           // return $location.path('/scenario/edit/{0}'.format(scenarioData.ScenarioId));
-         // Пока обозначил вот так, через service/factory не получается
+    
+       return $location.path('/Scenario/Edit/{0}'.format(scenarioData.ScenarioId));
+      
       }
       
-      
-
-    
-
-      
-    /*function saveDataScenario(scenarioData){          // Функция обновляет данные в БД без helper
-	//var getData.ScenarioId = $routeParams["id"];
-		var ScenarioId = $routeParams["id"];  // Переменная, чтобы поймать ключ Id
-		_urlLink = _urlLink + '(' + ScenarioId + ')'
-       
-       var targetUrl = _urlLink;
-       scenarioData.editLink = undefined; 
-       $http.put(targetUrl, scenarioData)
-        .then(function(res){
-          getScenarioData()
-          debugger;
-         toastr.success('Go on this way', 'All fine');
-        }, function(error){
-          toastr.error('Плохой код', 'Поправь его');
-        });
-
-        
-     	getScenarioData();
-        $location.path('/Scenario');
-    } 
+         
 
 
       function saveDataScenario(scenarioData){          // Функция обновляет данные в БД
@@ -84,29 +78,24 @@ angular.module('testerApp')
         debugger;
         var targetUrl = _urlLink;
         scenarioData.editLink = undefined;
-        scenarioFactory.SaveDataScenario(targetUrl, scenarioData)
-          .then(function(res){
-            getScenarioData();
-
-         toastr.success('Go on this way', 'All fine');
-        }, function(error){
-          toastr.error('Плохой код', 'Поправь его');
-        });
-         
-
-          var path = $location('/scenario/edit/{0}'.format(scenarioData.scenarioId));
-         // $console.debugger(path);
-          colsole.log(path);
-          getScenarioData();
-          //$location.path('/Scenario');
-      }*/
+          scenarioFactory.SaveDataScenario(targetUrl, scenarioData)
+            .then(function(res){
+                    refreshScenarioData()   
+                    toastr.success('Go on this way', 'All fine');
+              }, function(error){
+                    toastr.error('Плохой код', 'Поправь его');
+              });
+       
+          refreshScenarioData()
+          $location.path('/Scenario');
+      }
 
 
 
 
     
 	   getScenarioData();
-	 //  $scope.saveDataScenario = saveDataScenario; 
+	   $scope.saveDataScenario = saveDataScenario; 
      $scope.editScenario = editScenario;
 
    

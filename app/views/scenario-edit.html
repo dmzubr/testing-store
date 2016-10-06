@@ -2,24 +2,25 @@
 
 
 
-<input ng-model="postScenario2">
-<form ng-model="postScenario2">
+
+<form ng-model="postScenario">
 	
 
 	<div class="form-group"> 
 		<label for="ScenarioId">Id Сценария</label> 
-		<input type="text" class="form-control" ng-model="postScenario2.ScenarioId" placeholder="Id Сценария"> 
+		<input type="text" class="form-control" ng-model="postScenario.ScenarioId" placeholder="Id Сценария"> 
 	</div> 
 	<div class="form-group"> 
 		<label for="ScenarioId">Имя Сценария</label> 
-		<input type="text" class="form-control" ng-model="postScenario2.Name" placeholder="Имя Сценария"> 
+		<input type="text" class="form-control" ng-model="postScenario.Name" placeholder="Имя Сценария"> 
 	</div> 
 	<div class="form-group"> 
 		<label for="ScenarioId">Plan Id</label> 
-		<input type="text" class="form-control" ng-model="postScenario2
+		<input type="text" class="form-control" ng-model="postScenario.PlanId" placeholder="План">
+	
 	<div class="form-group"> 
 		<label for="ScenarioId">Описание сценария</label> 
-		<input type="text" class="form-control" ng-model="postScenario2.Description" placeholder="Описание сценария"> 
+		<input type="text" class="form-control" ng-model="postScenario.Description" placeholder="Описание сценария"> 
 	</div> 
 
 	<button class="btn btn-primary glyphicon glyphicon-pencil" ng-click="saveDataScenario(postScenario)">Submit</button>
@@ -27,6 +28,7 @@
 
 </form>
 
+<h1>{{ model.idRoute }}</h1>
 
 
 
